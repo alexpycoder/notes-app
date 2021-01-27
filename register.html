@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('login') }}">login</a>
+    </nav>
+
+
+
+    <main class="main_register">
+        <h3>Register Page</h3>
+
+
+        <div class="form_block">
+            <form autocomplete="off" method='POST'>
+                {{form.hidden_tag() }}
+                <ul>
+                    <div class="div_space">
+                        <li>{{form.email.label}}</li> {{form.email()}}
+                    </div>
+                
+                    <div class="div_space">
+                        <li>{{form.username.label}}</li> {{form.username()}}
+                    </div>
+
+
+                    <div class="div_space">
+                        <li>{{form.password.label}}</li> {{form.password()}}
+                    </div>
+                    <div class="div_space">
+                        <li>{{form.pass_confirm.label }}</li> {{form.pass_confirm()}}
+                    </div>
+                    <div class="div_space">
+                        <li>{{ form.submit(class='note_button')}}</li>
+                    </div>
+                    
+                    
+                </ul>
+            
+    
+            </form>
+
+            
+        </div>
+    
+    </main>
+    
+</body>
+</html>

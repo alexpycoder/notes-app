@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('notes_app') }}">My Notes</a>
+        <a href="{{ url_for('logout') }}">logout</a>
+    </nav>
+
+
+    <h3 class="profile_title">Profile page for: {{current_user.username}}</h3>
+
+
+        <div class="form_block">
+            <form autocomplete="off" method="POST">
+                {{form.hidden_tag()}}
+                <ul>
+                    <div class="div_space">
+                        <li>{{form.username.label }}</li> {{form.username}}
+                    </div>
+                    <div class="div_space">
+                        <li>{{form.email.label }}</li> {{form.email}}
+                    </div>
+                    <div class="div_space">
+                        <li>{{form.submit(class='note_button')}}</li>
+                    </div>
+    
+                </ul>
+              
+            </form>
+
+        </div>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    
+
+    <h2>Take a note, {{ current_user.username }}!</h2>
+
+    <main>
+        <div class="note_submit_block">
+            <form autocomplete="off" method='POST'>
+                {{ form.hidden_tag() }}
+                {{ form.title(class='note_title', placeholder='Title goes here.') }} <br>
+                {{ form.text(class='note_text', placeholder='Text goes here..', rows='5', cols='30') }} <br>
+                {{ form.submit(class='note_button') }}
+            </form>
+            
+        </div>
+
+
+        <!-- <div class="note_submit_block">
+            <form autocomplete="off" method='POST'>
+                {{ form.hidden_tag() }}
+                <label for="title"></label>
+                <input type="text" name="title" placeholder="this title.." required>
+                <label for="message"></label>
+                <textarea name="message" cols="30" rows="5" placeholder="Your message" required></textarea>
+                <button class="note_button" name="send" type="submit">Save</button>
+            </form>
+            
+        </div> -->
+        
+
+        <section>
+            <!-- <div class="note_itself">
+                {% for note, title, text, date in test_display |reverse %}
+            
+            
+                <li>{{title}}</li>
+                <li>{{text}}</li>
+                <li>{{date.strftime('%Y-%m-%d') }}</li>
+            
+                <li>{{ note }}</li>
+
+                <a href="/delete/{{note}}">X</a>
+                <a href="/update/{{note}}">Update</a>
+
+                <br>
+                {% endfor %}
+
+            </div> -->
+
+            {% for note, title, text, date in test_display |reverse %}
+            <table class="center_table">
+                <article>
+                    <tr>
+                        <th>{{title}}</th>
+                    </tr>
+                    <tr>
+                        <td>{{text}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date.strftime('%Y-%m-%d') }}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="/update/{{note}}">Update</a></td>
+                        <td><a href="/delete/{{note}}">X</a></td>
+                    </tr>
+
+                </article>
+                
+                
+            </table>
+            {% endfor %}
+
+            <!-- <table>
+                {% for note, title, text, date in test_display |reverse %}
+                
+                <td>
+                    <li>{{title}}</li>
+                    <li>{{text}}</li>
+                    <li>{{date.strftime('%Y-%m-%d') }}</li>
+
+                    <li>{{ note }}</li>
+
+                    <a href="/delete/{{note}}">X</a>
+                    <a href="/update/{{note}}">Update</a>
+
+                    <br>
+
+                </td>
+                {% endfor %}
+            </table> -->
+            
+        </section>
+    </main>
+</body>
+</html>

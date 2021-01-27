@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+    </nav>
+
+
+
+        <table class="center_description">
+            <div>
+                <tr>
+                    <th>Notes App</th>
+                    
+                </tr>
+                <tr>
+                    <td> This app includes authentication, authorization,
+                        allows to create, update and delete your notes and change profile information.
+                        Under the hood, it uses SQLite for database, SQLAlchemy as an abstraction layer, Jinja for rendering, Flask for server and of course Python itself.</td>
+                </tr>
+            </div>
+            
+            
+        </table>
+    
+</body>
+</html>
